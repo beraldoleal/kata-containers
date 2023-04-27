@@ -42,6 +42,8 @@ const (
 	typeVirtioFSCacheModeNone   = "none"
 	typeVirtioFSCacheModeAlways = "always"
 	typeVirtioFSCacheModeAuto   = "auto"
+
+	virtioFSStopTimeoutSecs = 5
 )
 
 type VirtiofsDaemon interface {
@@ -247,10 +249,11 @@ func (v *virtiofsd) kill(ctx context.Context) (err error) {
 		return nil
 	}
 
-	err = syscall.Kill(v.PID, syscall.SIGKILL)
-	if err != nil {
-		v.PID = 0
-	}
+	if err := utils.WaitLocalProcess(v.PID, virtioFSStopTimeoutSecs, syscall.SIGTERM, v.Logger()); err != nil {
+               v.Logger().WithError(err).Warn("kill virtiofsd err")
+        }
+
+        v.PID = 0
 	return err
 }
 

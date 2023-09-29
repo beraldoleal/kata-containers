@@ -87,14 +87,14 @@ func wait(ctx context.Context, s *service, c *container, execID string) (int32, 
 				shimLog.WithError(err).WithField("container", c.id).Warn("stop container failed")
 			}
 		}
-		c.status = task.StatusStopped
+		c.status = task.Status_STOPPED
 		c.exit = uint32(ret)
 		c.exitTime = timeStamp
 
 		c.exitCh <- uint32(ret)
-		shimLog.WithField("container", c.id).Debug("The container status is StatusStopped")
+		shimLog.WithField("container", c.id).Debug("The container status is Status_STOPPED")
 	} else {
-		execs.status = task.StatusStopped
+		execs.status = task.Status_STOPPED
 		execs.exitCode = ret
 		execs.exitTime = timeStamp
 
@@ -102,7 +102,7 @@ func wait(ctx context.Context, s *service, c *container, execID string) (int32, 
 		shimLog.WithFields(logrus.Fields{
 			"container": c.id,
 			"exec":      execID,
-		}).Debug("The container exec status is StatusStopped")
+		}).Debug("The container exec status is Status_STOPPED")
 	}
 	s.mu.Unlock()
 

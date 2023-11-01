@@ -9,8 +9,8 @@ import (
 	github_com_containerd_ttrpc "github.com/containerd/ttrpc"
 	proto "github.com/gogo/protobuf/proto"
 	github_com_gogo_protobuf_sortkeys "github.com/gogo/protobuf/sortkeys"
-	types "github.com/gogo/protobuf/types"
 	protocols "github.com/kata-containers/kata-containers/src/runtime/virtcontainers/pkg/agent/protocols"
+	protobuf "google/protobuf"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -8853,44 +8853,44 @@ func valueToStringAgent(v interface{}) string {
 }
 
 type AgentServiceService interface {
-	CreateContainer(ctx context.Context, req *CreateContainerRequest) (*types.Empty, error)
-	StartContainer(ctx context.Context, req *StartContainerRequest) (*types.Empty, error)
-	RemoveContainer(ctx context.Context, req *RemoveContainerRequest) (*types.Empty, error)
-	ExecProcess(ctx context.Context, req *ExecProcessRequest) (*types.Empty, error)
-	SignalProcess(ctx context.Context, req *SignalProcessRequest) (*types.Empty, error)
+	CreateContainer(ctx context.Context, req *CreateContainerRequest) (*protobuf.Empty, error)
+	StartContainer(ctx context.Context, req *StartContainerRequest) (*protobuf.Empty, error)
+	RemoveContainer(ctx context.Context, req *RemoveContainerRequest) (*protobuf.Empty, error)
+	ExecProcess(ctx context.Context, req *ExecProcessRequest) (*protobuf.Empty, error)
+	SignalProcess(ctx context.Context, req *SignalProcessRequest) (*protobuf.Empty, error)
 	WaitProcess(ctx context.Context, req *WaitProcessRequest) (*WaitProcessResponse, error)
-	UpdateContainer(ctx context.Context, req *UpdateContainerRequest) (*types.Empty, error)
-	UpdateEphemeralMounts(ctx context.Context, req *UpdateEphemeralMountsRequest) (*types.Empty, error)
+	UpdateContainer(ctx context.Context, req *UpdateContainerRequest) (*protobuf.Empty, error)
+	UpdateEphemeralMounts(ctx context.Context, req *UpdateEphemeralMountsRequest) (*protobuf.Empty, error)
 	StatsContainer(ctx context.Context, req *StatsContainerRequest) (*StatsContainerResponse, error)
-	PauseContainer(ctx context.Context, req *PauseContainerRequest) (*types.Empty, error)
-	ResumeContainer(ctx context.Context, req *ResumeContainerRequest) (*types.Empty, error)
-	RemoveStaleVirtiofsShareMounts(ctx context.Context, req *RemoveStaleVirtiofsShareMountsRequest) (*types.Empty, error)
+	PauseContainer(ctx context.Context, req *PauseContainerRequest) (*protobuf.Empty, error)
+	ResumeContainer(ctx context.Context, req *ResumeContainerRequest) (*protobuf.Empty, error)
+	RemoveStaleVirtiofsShareMounts(ctx context.Context, req *RemoveStaleVirtiofsShareMountsRequest) (*protobuf.Empty, error)
 	WriteStdin(ctx context.Context, req *WriteStreamRequest) (*WriteStreamResponse, error)
 	ReadStdout(ctx context.Context, req *ReadStreamRequest) (*ReadStreamResponse, error)
 	ReadStderr(ctx context.Context, req *ReadStreamRequest) (*ReadStreamResponse, error)
-	CloseStdin(ctx context.Context, req *CloseStdinRequest) (*types.Empty, error)
-	TtyWinResize(ctx context.Context, req *TtyWinResizeRequest) (*types.Empty, error)
+	CloseStdin(ctx context.Context, req *CloseStdinRequest) (*protobuf.Empty, error)
+	TtyWinResize(ctx context.Context, req *TtyWinResizeRequest) (*protobuf.Empty, error)
 	UpdateInterface(ctx context.Context, req *UpdateInterfaceRequest) (*protocols.Interface, error)
 	UpdateRoutes(ctx context.Context, req *UpdateRoutesRequest) (*Routes, error)
 	ListInterfaces(ctx context.Context, req *ListInterfacesRequest) (*Interfaces, error)
 	ListRoutes(ctx context.Context, req *ListRoutesRequest) (*Routes, error)
-	AddARPNeighbors(ctx context.Context, req *AddARPNeighborsRequest) (*types.Empty, error)
+	AddARPNeighbors(ctx context.Context, req *AddARPNeighborsRequest) (*protobuf.Empty, error)
 	GetIPTables(ctx context.Context, req *GetIPTablesRequest) (*GetIPTablesResponse, error)
 	SetIPTables(ctx context.Context, req *SetIPTablesRequest) (*SetIPTablesResponse, error)
 	GetMetrics(ctx context.Context, req *GetMetricsRequest) (*Metrics, error)
-	CreateSandbox(ctx context.Context, req *CreateSandboxRequest) (*types.Empty, error)
-	DestroySandbox(ctx context.Context, req *DestroySandboxRequest) (*types.Empty, error)
-	OnlineCPUMem(ctx context.Context, req *OnlineCPUMemRequest) (*types.Empty, error)
-	ReseedRandomDev(ctx context.Context, req *ReseedRandomDevRequest) (*types.Empty, error)
+	CreateSandbox(ctx context.Context, req *CreateSandboxRequest) (*protobuf.Empty, error)
+	DestroySandbox(ctx context.Context, req *DestroySandboxRequest) (*protobuf.Empty, error)
+	OnlineCPUMem(ctx context.Context, req *OnlineCPUMemRequest) (*protobuf.Empty, error)
+	ReseedRandomDev(ctx context.Context, req *ReseedRandomDevRequest) (*protobuf.Empty, error)
 	GetGuestDetails(ctx context.Context, req *GuestDetailsRequest) (*GuestDetailsResponse, error)
-	MemHotplugByProbe(ctx context.Context, req *MemHotplugByProbeRequest) (*types.Empty, error)
-	SetGuestDateTime(ctx context.Context, req *SetGuestDateTimeRequest) (*types.Empty, error)
-	CopyFile(ctx context.Context, req *CopyFileRequest) (*types.Empty, error)
+	MemHotplugByProbe(ctx context.Context, req *MemHotplugByProbeRequest) (*protobuf.Empty, error)
+	SetGuestDateTime(ctx context.Context, req *SetGuestDateTimeRequest) (*protobuf.Empty, error)
+	CopyFile(ctx context.Context, req *CopyFileRequest) (*protobuf.Empty, error)
 	GetOOMEvent(ctx context.Context, req *GetOOMEventRequest) (*OOMEvent, error)
-	AddSwap(ctx context.Context, req *AddSwapRequest) (*types.Empty, error)
+	AddSwap(ctx context.Context, req *AddSwapRequest) (*protobuf.Empty, error)
 	GetVolumeStats(ctx context.Context, req *VolumeStatsRequest) (*VolumeStatsResponse, error)
-	ResizeVolume(ctx context.Context, req *ResizeVolumeRequest) (*types.Empty, error)
-	SetPolicy(ctx context.Context, req *SetPolicyRequest) (*types.Empty, error)
+	ResizeVolume(ctx context.Context, req *ResizeVolumeRequest) (*protobuf.Empty, error)
+	SetPolicy(ctx context.Context, req *SetPolicyRequest) (*protobuf.Empty, error)
 }
 
 func RegisterAgentServiceService(srv *github_com_containerd_ttrpc.Server, svc AgentServiceService) {
@@ -9174,40 +9174,40 @@ func NewAgentServiceClient(client *github_com_containerd_ttrpc.Client) AgentServ
 	}
 }
 
-func (c *agentServiceClient) CreateContainer(ctx context.Context, req *CreateContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) CreateContainer(ctx context.Context, req *CreateContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "CreateContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) StartContainer(ctx context.Context, req *StartContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) StartContainer(ctx context.Context, req *StartContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "StartContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) RemoveContainer(ctx context.Context, req *RemoveContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) RemoveContainer(ctx context.Context, req *RemoveContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "RemoveContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) ExecProcess(ctx context.Context, req *ExecProcessRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) ExecProcess(ctx context.Context, req *ExecProcessRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "ExecProcess", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) SignalProcess(ctx context.Context, req *SignalProcessRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) SignalProcess(ctx context.Context, req *SignalProcessRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "SignalProcess", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9222,16 +9222,16 @@ func (c *agentServiceClient) WaitProcess(ctx context.Context, req *WaitProcessRe
 	return &resp, nil
 }
 
-func (c *agentServiceClient) UpdateContainer(ctx context.Context, req *UpdateContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) UpdateContainer(ctx context.Context, req *UpdateContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "UpdateContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) UpdateEphemeralMounts(ctx context.Context, req *UpdateEphemeralMountsRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) UpdateEphemeralMounts(ctx context.Context, req *UpdateEphemeralMountsRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "UpdateEphemeralMounts", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9246,24 +9246,24 @@ func (c *agentServiceClient) StatsContainer(ctx context.Context, req *StatsConta
 	return &resp, nil
 }
 
-func (c *agentServiceClient) PauseContainer(ctx context.Context, req *PauseContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) PauseContainer(ctx context.Context, req *PauseContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "PauseContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) ResumeContainer(ctx context.Context, req *ResumeContainerRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) ResumeContainer(ctx context.Context, req *ResumeContainerRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "ResumeContainer", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) RemoveStaleVirtiofsShareMounts(ctx context.Context, req *RemoveStaleVirtiofsShareMountsRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) RemoveStaleVirtiofsShareMounts(ctx context.Context, req *RemoveStaleVirtiofsShareMountsRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "RemoveStaleVirtiofsShareMounts", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9294,16 +9294,16 @@ func (c *agentServiceClient) ReadStderr(ctx context.Context, req *ReadStreamRequ
 	return &resp, nil
 }
 
-func (c *agentServiceClient) CloseStdin(ctx context.Context, req *CloseStdinRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) CloseStdin(ctx context.Context, req *CloseStdinRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "CloseStdin", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) TtyWinResize(ctx context.Context, req *TtyWinResizeRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) TtyWinResize(ctx context.Context, req *TtyWinResizeRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "TtyWinResize", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9342,8 +9342,8 @@ func (c *agentServiceClient) ListRoutes(ctx context.Context, req *ListRoutesRequ
 	return &resp, nil
 }
 
-func (c *agentServiceClient) AddARPNeighbors(ctx context.Context, req *AddARPNeighborsRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) AddARPNeighbors(ctx context.Context, req *AddARPNeighborsRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "AddARPNeighbors", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9374,32 +9374,32 @@ func (c *agentServiceClient) GetMetrics(ctx context.Context, req *GetMetricsRequ
 	return &resp, nil
 }
 
-func (c *agentServiceClient) CreateSandbox(ctx context.Context, req *CreateSandboxRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) CreateSandbox(ctx context.Context, req *CreateSandboxRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "CreateSandbox", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) DestroySandbox(ctx context.Context, req *DestroySandboxRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) DestroySandbox(ctx context.Context, req *DestroySandboxRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "DestroySandbox", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) OnlineCPUMem(ctx context.Context, req *OnlineCPUMemRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) OnlineCPUMem(ctx context.Context, req *OnlineCPUMemRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "OnlineCPUMem", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) ReseedRandomDev(ctx context.Context, req *ReseedRandomDevRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) ReseedRandomDev(ctx context.Context, req *ReseedRandomDevRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "ReseedRandomDev", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9414,24 +9414,24 @@ func (c *agentServiceClient) GetGuestDetails(ctx context.Context, req *GuestDeta
 	return &resp, nil
 }
 
-func (c *agentServiceClient) MemHotplugByProbe(ctx context.Context, req *MemHotplugByProbeRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) MemHotplugByProbe(ctx context.Context, req *MemHotplugByProbeRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "MemHotplugByProbe", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) SetGuestDateTime(ctx context.Context, req *SetGuestDateTimeRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) SetGuestDateTime(ctx context.Context, req *SetGuestDateTimeRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "SetGuestDateTime", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) CopyFile(ctx context.Context, req *CopyFileRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) CopyFile(ctx context.Context, req *CopyFileRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "CopyFile", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9446,8 +9446,8 @@ func (c *agentServiceClient) GetOOMEvent(ctx context.Context, req *GetOOMEventRe
 	return &resp, nil
 }
 
-func (c *agentServiceClient) AddSwap(ctx context.Context, req *AddSwapRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) AddSwap(ctx context.Context, req *AddSwapRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "AddSwap", req, &resp); err != nil {
 		return nil, err
 	}
@@ -9462,16 +9462,16 @@ func (c *agentServiceClient) GetVolumeStats(ctx context.Context, req *VolumeStat
 	return &resp, nil
 }
 
-func (c *agentServiceClient) ResizeVolume(ctx context.Context, req *ResizeVolumeRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) ResizeVolume(ctx context.Context, req *ResizeVolumeRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "ResizeVolume", req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil
 }
 
-func (c *agentServiceClient) SetPolicy(ctx context.Context, req *SetPolicyRequest) (*types.Empty, error) {
-	var resp types.Empty
+func (c *agentServiceClient) SetPolicy(ctx context.Context, req *SetPolicyRequest) (*protobuf.Empty, error) {
+	var resp protobuf.Empty
 	if err := c.client.Call(ctx, "grpc.AgentService", "SetPolicy", req, &resp); err != nil {
 		return nil, err
 	}

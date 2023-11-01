@@ -8,19 +8,19 @@ COMPONENTS =
 
 COMPONENTS += libs
 COMPONENTS += agent
-COMPONENTS += dragonball
+# COMPONENTS += dragonball
 COMPONENTS += runtime
-COMPONENTS += runtime-rs
+# COMPONENTS += runtime-rs
 
 # List of available tools
 TOOLS =
 
-TOOLS += agent-ctl
-TOOLS += kata-ctl
-TOOLS += log-parser
-TOOLS += log-parser-rs
-TOOLS += runk
-TOOLS += trace-forwarder
+# TOOLS += agent-ctl
+# TOOLS += kata-ctl
+# TOOLS += log-parser
+# TOOLS += log-parser-rs
+# TOOLS += runk
+# TOOLS += trace-forwarder
 
 STANDARD_TARGETS = build check clean install static-checks-build test vendor
 

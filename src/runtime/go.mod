@@ -10,12 +10,12 @@ require (
 	github.com/container-orchestrated-devices/container-device-interface v0.6.0
 	github.com/containerd/cgroups v1.0.5-0.20220625035431-cf7417bca682
 	github.com/containerd/console v1.0.3
-	github.com/containerd/containerd v1.6.8
+	github.com/containerd/containerd v1.7.2
 	github.com/containerd/cri-containerd v1.19.0
-	github.com/containerd/fifo v1.0.0
-	github.com/containerd/ttrpc v1.1.0
-	github.com/containerd/typeurl v1.0.2
-	github.com/containernetworking/plugins v1.1.1
+	github.com/containerd/fifo v1.1.0
+	github.com/containerd/ttrpc v1.2.2
+	github.com/containerd/typeurl v1.0.3-0.20220422153119-7f6e6d160d67
+	github.com/containernetworking/plugins v1.2.0
 	github.com/containers/podman/v4 v4.2.0
 	github.com/coreos/go-systemd/v22 v22.3.2
 	github.com/docker/go-units v0.4.0
@@ -116,12 +116,10 @@ require (
 
 replace (
 	github.com/go-openapi/swag => github.com/go-openapi/swag v0.21.1
-	github.com/opencontainers/image-spec => github.com/opencontainers/image-spec v1.0.2
 	github.com/opencontainers/runc => github.com/opencontainers/runc v1.1.9
 	github.com/stretchr/testify => github.com/stretchr/testify v1.8.0
 	github.com/uber-go/atomic => go.uber.org/atomic v1.5.1
 	golang.org/x/text => golang.org/x/text v0.7.0
-	google.golang.org/genproto => google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
 	google.golang.org/grpc => google.golang.org/grpc v1.47.0
 	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
 )

@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   kata-containers-ci-on-push:
+    name: Build Artifacts
     if: ${{ contains(github.event.pull_request.labels.*.name, 'ok-to-test') }}
     uses: ./.github/workflows/ci.yaml
     with:

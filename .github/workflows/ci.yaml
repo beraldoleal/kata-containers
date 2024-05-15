@@ -18,6 +18,7 @@ on:
 
 jobs:
   build-kata-static-tarball-amd64:
+    name: Kata Static Tarball (amd64)
     uses: ./.github/workflows/build-kata-static-tarball-amd64.yaml
     with:
       tarball-suffix: -${{ inputs.tag }}
@@ -37,6 +38,7 @@ jobs:
     secrets: inherit
 
   build-kata-static-tarball-s390x:
+    name: Kata Static Tarball (s390x)
     uses: ./.github/workflows/build-kata-static-tarball-s390x.yaml
     with:
       tarball-suffix: -${{ inputs.tag }}
@@ -45,6 +47,7 @@ jobs:
     secrets: inherit
   
   build-kata-static-tarball-ppc64le:
+    name: Kata Static Tarball (ppc64le)
     uses: ./.github/workflows/build-kata-static-tarball-ppc64le.yaml
     with:
       tarball-suffix: -${{ inputs.tag }}

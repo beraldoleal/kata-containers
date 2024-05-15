@@ -11,7 +11,7 @@ type ContainerType string
 // List different types of containers
 const (
 	// PodContainer identifies a container that should be associated with an existing pod
-	PodContainer ContainerType = "pod_container"
+	PodContainer ContainerType = "pod_contain"
 	// PodSandbox identifies an infra container that will be used to create the pod
 	PodSandbox ContainerType = "pod_sandbox"
 	// SingleContainer is utilized to describe a container that didn't have a container/sandbox

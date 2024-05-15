@@ -23,6 +23,7 @@ on:
 
 jobs:
   build-asset:
+    name: ${{ matrix.asset }}@${{ matrix.stage }}
     runs-on: ubuntu-latest
     strategy:
       matrix:

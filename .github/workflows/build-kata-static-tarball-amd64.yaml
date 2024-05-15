@@ -23,6 +23,7 @@ on:
 
 jobs:
   build-asset:
+    name: Build Kata Assets (amd64)
     runs-on: ubuntu-latest
     strategy:
       matrix:

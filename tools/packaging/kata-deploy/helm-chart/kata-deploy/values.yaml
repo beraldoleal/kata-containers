@@ -357,6 +357,9 @@ env:
   # NOTE: When set, the default RuntimeClass (runtimeClasses.createDefault) will NOT be created
   #       to avoid naming conflicts. Use fully qualified RuntimeClass names (e.g., kata-qemu-suffix1).
   multiInstallSuffix: ""
+  # Set to "false" on environments that enable discard_unpacked_layers by default (e.g. GKE).
+  # Nydus snapshotter requires compressed image layers to remain available on the node.
+  containerdDiscardUnpackedLayers: ""
 
 # Node Feature Discovery (NFD) configuration
 # node-feature-discovery is used to detect hardware features, including virtualization support

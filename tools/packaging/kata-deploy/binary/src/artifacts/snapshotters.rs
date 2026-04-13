@@ -64,6 +64,14 @@ pub async fn configure_nydus_snapshotter(
         "false",
     )?;
 
+    if let Some(false) = config.containerd_discard_unpacked_layers {
+        toml_utils::set_toml_value(
+            configuration_file,
+            &format!(".plugins.{pluginid}.discard_unpacked_layers"),
+            "false",
+        )?;
+    }
+
     toml_utils::set_toml_value(
         configuration_file,
         &format!(".proxy_plugins.\"{nydus}\".type"),

@@ -158,6 +158,7 @@ pub struct Config {
     pub daemonset_name: String,
     pub custom_runtimes_enabled: bool,
     pub custom_runtimes: Vec<CustomRuntime>,
+    pub containerd_discard_unpacked_layers: Option<bool>,
 }
 
 impl Config {
@@ -273,6 +274,10 @@ impl Config {
             Vec::new()
         };
 
+        let containerd_discard_unpacked_layers = env::var("CONTAINERD_DISCARD_UNPACKED_LAYERS")
+            .ok()
+            .and_then(|v| v.parse::<bool>().ok());
+
         let config = Config {
             node_name,
             debug,
@@ -299,6 +304,7 @@ impl Config {
             daemonset_name,
             custom_runtimes_enabled,
             custom_runtimes,
+            containerd_discard_unpacked_layers,
         };
 
         // Validate the configuration
